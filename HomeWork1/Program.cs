@@ -39,6 +39,10 @@ namespace HomeWork1
             #endregion
 
             #region Задание 2
+            /*
+            2.Ввести вес и рост человека. Рассчитать и вывести индекс массы тела(ИМТ) по формуле I = m / (h * h); где m — масса тела в килограммах, h — рост в метрах
+            Используем ранее введенные вес и рост.
+            */
             float m = Convert.ToInt32(Weight);
             float h = Convert.ToInt32(Height);
             h = h / 100;
