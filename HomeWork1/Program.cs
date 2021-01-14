@@ -6,7 +6,42 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace HomeWork1
-{
+{   public class Person
+    {
+        public string Name;
+        public string Surname;
+        public string Age;
+        public string Height;
+        public string City;
+
+        /// <summary>
+        /// Вывод массива строк в центре экрана
+        /// </summary>
+        /// <param name="str"></param>
+        public void Print()
+        {
+            Console.Clear();
+            string[] str = { Name, Surname, City };
+            int top = Console.WindowHeight / 2 - str.Length / 2;
+            int strLength;
+            for (int i = 0; i < str.Length; i++, top++)
+            {
+                strLength = str[i].Length;
+                if (strLength % 2 != 0)
+                    strLength++;
+                Console.SetCursorPosition(Console.WindowWidth / 2 - strLength / 2, top);
+                Console.Write(str[i]);
+            }
+        }
+
+        /// <summary>
+        /// Пауза
+        /// </summary>
+        public void Pause()
+        {
+            Console.ReadLine();
+        }
+    }
     class Program
     {
         /// <summary>
@@ -192,6 +227,25 @@ namespace HomeWork1
             Console.Clear();
             Print(str);
             Console.ReadLine();
+            #endregion
+
+            #region Задание 6
+            /*
+            6. *Создать класс с методами, которые могут пригодиться в вашей учебе (Print, Pause).
+            */
+            Console.Clear();
+            Console.WriteLine("Использование класса");
+            Person ClassPerson = new Person
+            {
+                Name = Name,
+                Surname = Surname,
+                Age = Age,
+                Height = Height,
+                City = City
+            };
+            ClassPerson.Pause();            
+            ClassPerson.Print();
+            ClassPerson.Pause();
             #endregion
         }
     }
