@@ -1,4 +1,5 @@
-﻿using System;
+﻿//Шадрин Максим
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,8 +23,27 @@ namespace HomeWork1
             return r;
         }
 
-        static void Main(string[] args)
+        /// <summary>
+        /// Вывод массива строк в центре экрана
+        /// </summary>
+        /// <param name="str"></param>
+        static void Print(string[] str)
         {
+            Console.Clear();
+            int top = Console.WindowHeight / 2 - str.Length / 2;
+            int strLength;
+            for (int i = 0; i < str.Length; i++, top++)
+            {
+                strLength = str[i].Length;
+                if (strLength % 2 != 0)
+                    strLength++;
+                Console.SetCursorPosition(Console.WindowWidth / 2 - strLength / 2, top);
+                Console.Write(str[i]);
+            }
+        }
+
+        static void Main(string[] args)
+        {   
             #region Задание 1
             /*
             1.Написать программу «Анкета». Последовательно задаются вопросы(имя, фамилия, возраст, рост, вес).В результате вся информация выводится в одну строчку.
@@ -108,11 +128,9 @@ namespace HomeWork1
             Console.Write("Введите x2: ");
             string x2_str = Console.ReadLine();
             Console.WriteLine($"Вы ввели x1 \"{x1_str}\" и х2 \"{x2_str}\"");
-
-            double a;
-            double b;
-            bool isx1Num = double.TryParse(x1_str, out a);
-            bool isx2Num = double.TryParse(x2_str, out b);
+                   
+            bool isx1Num = double.TryParse(x1_str, out double a);
+            bool isx2Num = double.TryParse(x2_str, out double b);
 
             Console.WriteLine("Меняем значения");
             string y = x1_str;
@@ -130,6 +148,49 @@ namespace HomeWork1
                 }
             else
                 Console.WriteLine("Не являются числами! Без использования третьей переменной поменять нельзя!");
+            Console.ReadLine();
+            #endregion
+
+            #region Задание 5
+            /*
+            а) Написать программу, которая выводит на экран ваше имя, фамилию и город проживания.
+            б) Сделать задание, только вывод организуйте в центре экрана
+            в) *Сделать задание б с использованием собственных методов (например, Print(string ms, int x,int y)
+            */
+            Console.Clear();
+            Console.WriteLine("Вывод данных на экран в центре");
+            Console.WriteLine("Введите данные:");
+            Console.Write("Имя: ");
+            Name = Console.ReadLine();
+            Console.Write("Фамилия: ");
+            Surname = Console.ReadLine();
+            Console.Write("Город проживания: ");
+            string City = Console.ReadLine();
+
+            //а)
+            Console.WriteLine($"Имя: {Name}");
+            Console.WriteLine($"Фамилия: {Surname}");
+            Console.WriteLine($"Город проживания: {City}");
+            Console.ReadLine();
+
+            //б)
+            string[] str = { Name, Surname, City };
+            Console.Clear();
+            int top = Console.WindowHeight / 2 - str.Length / 2;
+            int strLength;
+            for (int i = 0; i < str.Length; i++, top++)
+            {
+                strLength = str[i].Length;
+                if (strLength % 2 != 0)
+                    strLength++;   
+                Console.SetCursorPosition(Console.WindowWidth / 2 - strLength / 2, top);
+                Console.Write(str[i]);
+            }
+            Console.ReadLine();
+
+            //в)
+            Console.Clear();
+            Print(str);
             Console.ReadLine();
             #endregion
         }
